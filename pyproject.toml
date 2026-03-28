@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sfp"
+version = "0.1.0"
+description = "Semantic Field Processing: Knowledge as topology, data as transient signal"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+]
+
+[project.scripts]
+sfp = "sfp.__main__:main"
+
+[project.gui-scripts]
+sfp-gui = "sfp.gui.app:main"
+
+[project.optional-dependencies]
+topology = ["giotto-tda>=0.6"]
+embeddings = ["sentence-transformers>=2.0", "transformers>=4.30"]
+viz = ["matplotlib>=3.7", "scikit-learn>=1.3"]
+all = ["sfp[topology,embeddings,viz]"]
+packaging = ["pyinstaller>=6.0"]
+dev = [
+    "sfp[all,packaging]",
+    "pytest>=7.0",
+    "pytest-benchmark",
+    "pytest-cov",
+    "mypy",
+    "ruff",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sfp"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: long-running sustainability tests (2000+ steps)",
+]

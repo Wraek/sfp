@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+.buildenv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# PyInstaller
+*.spec.bak
+
+# Session data
+sessions/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Large model files
+*.pt
+*.pth
+*.onnx
+*.bin
+
+# Build artifacts
+build/
+dist/
+*.spec.bak
+*.zip
+
+# Design documents (local only)
+baseline/
+
+# Bridge contract (separate repo)
+SFPMC_BRIDGE_CONTRACT.md
